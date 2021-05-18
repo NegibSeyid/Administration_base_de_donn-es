@@ -1,0 +1,36 @@
+@startuml RESERVATION CINEMA
+class Cinema {
+  -nom: String
+
+}
+class Film {
+  -titre: String
+  -dateProduction :Date
+  -nomAuteur:String
+  -genre: String
+
+}
+  class Salle {
+  -nom: String
+  -nbrePlace: int
+
+}
+
+class Reservation {
+  -dateReservation: Date
+  -tarif: decimal
+
+}
+
+class Client {
+  -nomClient: String
+ - prenomClient: String
+ - dateNaissance: Date
+
+}
+Client "1" --"*" Film : consulte
+Cinema "1" *--"*" Salle : Compose
+Salle "*" --"*" Film : projette
+Client "1" --"*" Reservation : fait
+
+@enduml
